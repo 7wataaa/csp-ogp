@@ -1,7 +1,11 @@
 import NextImage from 'next/image';
 
-export default function Home() {
-  return (
+export default function Home(props) {
+  return <>{props.repositoryOGP}</>;
+}
+
+export const getStaticProps = () => {
+  const repositoryOGP = (
     <NextImage
       layout="fill"
       objectFit="contain"
@@ -9,4 +13,7 @@ export default function Home() {
       alt="Repository link image"
     />
   );
-}
+  return {
+    props: { repositoryOGP },
+  };
+};
